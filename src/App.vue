@@ -36,8 +36,14 @@ const options = {
   <div class="container mx-auto">
     <h1 class="text-center my-8 text-xl">Client Counselor Matching Algo Testbench 🎲</h1>
     <BarChart :chartData="chartData" :options="options"></BarChart>
-    <button class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" @click.prevent="store.generateClient">Create new client</button>
-    <p>Num of clients: {{ store.clients.length }}</p>
+    <div class="flex space-x-2 items-center">
+      <button class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" @click.prevent="store.generateClient">Create new client</button>
+      <p class="text-sm">Num of clients: {{ store.clients.length }}</p>
+    </div>
+    <h2 class="mt-4 mb-2 font-bold">Priorities</h2>
+    <ul>
+      <li v-for="priority in store.priorities">{{ priority.name }}: {{ priority.value }}</li>
+    </ul>
   </div>
 </template>
 
